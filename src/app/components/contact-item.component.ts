@@ -6,6 +6,7 @@ import { Contact } from '../models/contact';
   template: `
     <p>{{contact.firstname}} {{contact.lastname}}</p>
     <button (click)="onClickDeleteButton()">Delete</button>
+    <a [routerLink]="['/edit', contact.id]">Edit</a>
   `,
   styles: ['p { color: red; }']
 })

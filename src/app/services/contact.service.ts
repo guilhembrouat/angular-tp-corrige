@@ -8,44 +8,19 @@ export class ContactService {
 
   private contacts: Contact[] = [
     {
+      "id": 1,
       "firstname": "Talon",
       "lastname": "Underwood"
     },
     {
+      "id": 2,
       "firstname": "Hamilton",
       "lastname": "Snow"
     },
     {
+      "id": 3,
       "firstname": "Lance",
       "lastname": "Rutledge"
-    },
-    {
-      "firstname": "Barrett",
-      "lastname": "Shaw"
-    },
-    {
-      "firstname": "Halla",
-      "lastname": "Nguyen"
-    },
-    {
-      "firstname": "Garth",
-      "lastname": "Bridges"
-    },
-    {
-      "firstname": "Lilah",
-      "lastname": "Wilkerson"
-    },
-    {
-      "firstname": "Keefe",
-      "lastname": "Dodson"
-    },
-    {
-      "firstname": "Ayanna",
-      "lastname": "Flynn"
-    },
-    {
-      "firstname": "Zachary",
-      "lastname": "Scott"
     },
   ];
 
@@ -53,5 +28,9 @@ export class ContactService {
 
   getContacts(): Contact[] {
     return this.contacts;
+  }
+
+  getContact(id: number): Contact {
+    return this.contacts.find(c => c.id === id);
   }
 }
