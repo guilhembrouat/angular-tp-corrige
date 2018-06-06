@@ -8,6 +8,7 @@ import { ContactItemComponent } from './components/contact-item.component';
 import { routes } from './app.routes';
 import { NotFoundComponent } from './components/not-found.component';
 import { ContactEditComponent } from './components/contact-edit.component';
+import { ContactEdit2Component } from './components/contact-edit2.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ContactEditComponent } from './components/contact-edit.component';
     ContactListComponent,
     ContactItemComponent,
     NotFoundComponent,
-    ContactEditComponent
+    ContactEditComponent,
+    ContactEdit2Component
   ],
   imports: [
     BrowserModule,
