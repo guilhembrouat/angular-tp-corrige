@@ -7,6 +7,7 @@ import { Contact } from '../models/contact';
     <app-contact-item 
       *ngFor="let contact of contacts"
       [contact]="contact"
+      (delete)="onContactDelete($event)"
     ></app-contact-item>
   `,
   styles: []
@@ -56,4 +57,7 @@ export class ContactListComponent {
     },
   ]
 
+  onContactDelete(contact: Contact) {
+    console.log(`Contact deleted: ${contact.firstname} ${contact.lastname}`)
+  }
 }
