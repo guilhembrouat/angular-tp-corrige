@@ -10,6 +10,8 @@ import { NotFoundComponent } from './components/not-found.component';
 import { ContactEditComponent } from './components/contact-edit.component';
 import { ContactEdit2Component } from './components/contact-edit2.component';
 import { ContactListSubComponent } from './components/contact-list-sub.component';
+import { ChatComponent } from './components/chat.component';
+import { HelpComponent } from './components/help.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ContactListSubComponent } from './components/contact-list-sub.component
     NotFoundComponent,
     ContactEditComponent,
     ContactEdit2Component,
-    ContactListSubComponent
+    ContactListSubComponent,
+    ChatComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,
