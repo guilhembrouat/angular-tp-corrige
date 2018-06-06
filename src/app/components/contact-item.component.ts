@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { Contact } from '../models/contact';
 
 @Component({
@@ -7,7 +7,7 @@ import { Contact } from '../models/contact';
     <p>{{contact.firstname}} {{contact.lastname}}</p>
     <button (click)="onClickDeleteButton()">Delete</button>
   `,
-  styles: []
+  styles: ['p { color: red; }']
 })
 export class ContactItemComponent {
   @Input() contact: Contact;

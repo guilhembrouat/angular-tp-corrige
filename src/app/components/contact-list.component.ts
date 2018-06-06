@@ -1,61 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Contact } from '../models/contact';
+import { ContactService } from '../services/contact.service';
 
 @Component({
   selector: 'app-contact-list',
   template: `
+    <p>This is the contacts list</p>
     <app-contact-item 
       *ngFor="let contact of contacts"
       [contact]="contact"
       (delete)="onContactDelete($event)"
     ></app-contact-item>
   `,
-  styles: []
+  styles: [`
+  :host {
+    display: block; 
+    border: 1px solid green; 
+  }
+  :host-context(.error) {
+    border-color: red;
+  }
+`]
 })
 export class ContactListComponent {
 
-  contacts: Contact[] = [
-    {
-      "firstname": "Talon",
-      "lastname": "Underwood"
-    },
-    {
-      "firstname": "Hamilton",
-      "lastname": "Snow"
-    },
-    {
-      "firstname": "Lance",
-      "lastname": "Rutledge"
-    },
-    {
-      "firstname": "Barrett",
-      "lastname": "Shaw"
-    },
-    {
-      "firstname": "Halla",
-      "lastname": "Nguyen"
-    },
-    {
-      "firstname": "Garth",
-      "lastname": "Bridges"
-    },
-    {
-      "firstname": "Lilah",
-      "lastname": "Wilkerson"
-    },
-    {
-      "firstname": "Keefe",
-      "lastname": "Dodson"
-    },
-    {
-      "firstname": "Ayanna",
-      "lastname": "Flynn"
-    },
-    {
-      "firstname": "Zachary",
-      "lastname": "Scott"
-    },
-  ]
+  contacts: Contact[];
+
+  constructor(private service: ContactService) {
+    this.contacts = service.getContacts();
+  }
 
   onContactDelete(contact: Contact) {
     console.log(`Contact deleted: ${contact.firstname} ${contact.lastname}`)
