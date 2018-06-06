@@ -13,7 +13,8 @@
           "inlineTemplate": true,
           "inlineStyle": true,
           "styleext": "scss",
-          "spec": false
+          "spec": false,
+          "flat": true
         },
         "@schematics/angular:class": {
           "spec": false
