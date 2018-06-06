@@ -5,12 +5,16 @@ import { ContactService } from '../services/contact.service';
 @Component({
   selector: 'app-contact-list',
   template: `
+    <a routerLink="/list/sub">Show sub component</a>
     <p>This is the contacts list</p>
     <app-contact-item 
       *ngFor="let contact of contacts"
       [contact]="contact"
       (delete)="onContactDelete($event)"
     ></app-contact-item>
+    
+    <h2>Sub :</h2>
+    <router-outlet></router-outlet>
   `,
   styles: [`
   :host {
