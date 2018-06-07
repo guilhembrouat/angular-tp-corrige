@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContactService } from '../services/contact.service';
 import { Contact } from '../models/contact';
-import { switchMap } from 'rxjs/operators'
+import { switchMap, filter } from 'rxjs/operators'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -79,8 +79,9 @@ export class ContactEditComponent implements OnInit {
     //     this.service.getContact(+params.id)
     //       .subscribe(contact => this.contact = contact);
     //   });
-
+    
     this.route.params.pipe(
+      filter(params => !isNaN(+params.id)),
       switchMap(params => this.service.getContact(+params.id))
     ).subscribe(contact => {
       this.contact = contact;
@@ -89,10 +90,17 @@ export class ContactEditComponent implements OnInit {
   }
 
   saveContact() {
-    this.service.saveContact({
-      ...this.contact,
-      ...this.form.value
-    }).subscribe(() => {
+    let toSave: Contact;
+    if (this.contact) {
+      toSave = {
+        ...this.contact,
+        ...this.form.value
+      }
+    } else {
+      toSave = this.form.value;
+    }
+
+    this.service.saveContact(toSave).subscribe(() => {
       this.router.navigateByUrl('/list');
     })
   }

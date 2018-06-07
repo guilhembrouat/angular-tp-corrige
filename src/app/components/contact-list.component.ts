@@ -7,7 +7,8 @@ import { switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-contact-list',
   template: `
-    <a routerLink="/list/sub">Show sub component</a>
+    <p><a routerLink="/list/sub">Show sub component</a></p>
+    <p><a routerLink="/create">Create contact</a></p>
     <p>This is the contacts list</p>
     <app-contact-item 
       *ngFor="let contact of contacts$ | async"

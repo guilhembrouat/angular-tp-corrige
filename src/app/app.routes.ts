@@ -17,6 +17,7 @@ export const routes: Route[] = [
   {path: 'edit2/:id', component: ContactEdit2Component, resolve: {
     contact: ContactResolverService
   }},
+  {path: 'create', component: ContactEditComponent},
   {path: 'not-found', component: NotFoundComponent},
   {path: 'chat', outlet: 'bottom', component: ChatComponent},
   {path: 'help', outlet: 'bottom', component: HelpComponent},
