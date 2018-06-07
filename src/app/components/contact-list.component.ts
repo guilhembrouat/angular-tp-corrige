@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Contact } from '../models/contact';
 import { ContactService } from '../services/contact.service';
 import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-contact-list',
@@ -39,6 +40,8 @@ export class ContactListComponent {
   }
 
   onContactDelete(contact: Contact) {
-    console.log(`Contact deleted: ${contact.firstname} ${contact.lastname}`)
+    this.contacts$ = this.service.deleteContact(contact.id).pipe(
+      switchMap(() => this.service.getContacts()) 
+    );
   }
 }

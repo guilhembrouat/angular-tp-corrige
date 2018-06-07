@@ -27,4 +27,8 @@ export class ContactService {
       return this.http.post<Contact>(BASE_URL, contact);
     }
   }
+
+  deleteContact(id: number): Observable<any> {
+    return this.http.delete<any>(BASE_URL+id);
+  } 
 }
