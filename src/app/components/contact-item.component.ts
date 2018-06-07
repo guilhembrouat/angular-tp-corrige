@@ -4,7 +4,7 @@ import { Contact } from '../models/contact';
 @Component({
   selector: 'app-contact-item',
   template: `
-    <p>{{contact.firstname}} {{contact.lastname}}</p>
+    <p>{{contact.firstName}} {{contact.lastName}}</p>
     <button (click)="onClickDeleteButton()">Delete</button>
     <a [routerLink]="['/edit', contact.id]">Edit</a>
     <a [routerLink]="['/edit2', contact.id]">Edit 2</a>

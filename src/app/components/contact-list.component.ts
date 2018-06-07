@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Contact } from '../models/contact';
 import { ContactService } from '../services/contact.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-contact-list',
@@ -8,7 +9,7 @@ import { ContactService } from '../services/contact.service';
     <a routerLink="/list/sub">Show sub component</a>
     <p>This is the contacts list</p>
     <app-contact-item 
-      *ngFor="let contact of contacts"
+      *ngFor="let contact of contacts$ | async"
       [contact]="contact"
       (delete)="onContactDelete($event)"
     ></app-contact-item>
@@ -28,10 +29,13 @@ import { ContactService } from '../services/contact.service';
 })
 export class ContactListComponent {
 
-  contacts: Contact[];
+  // contacts: Contact[];
+  contacts$: Observable<Contact[]>;
 
   constructor(private service: ContactService) {
-    this.contacts = service.getContacts();
+    this.contacts$ = service.getContacts();
+    // this.service.getContacts()
+    //   .subscribe(contacts => this.contacts = contacts);
   }
 
   onContactDelete(contact: Contact) {
