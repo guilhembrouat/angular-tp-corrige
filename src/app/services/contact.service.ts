@@ -3,7 +3,7 @@ import { Contact } from '../models/contact';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const BASE_URL = 'http://192.168.1.53:3000/api/contacts/';
+export const BASE_URL = 'http://192.168.1.53:3000/api/contacts/';
 
 @Injectable({
   providedIn: 'root'
