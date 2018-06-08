@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
   template: `
-    <h1>Address Book</h1>
+    <img src="assets/google.png" />
+    <h1>Address Book {{envName}}</h1>
     <nav>
     <a [routerLink]="[{outlets: {bottom: ['chat']}}]">Show chat</a>
     <a [routerLink]="[{outlets: {bottom: ['help']}}]">Show help</a>
@@ -14,5 +16,5 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  title = 'app';
+  envName = environment.envName;
 }
