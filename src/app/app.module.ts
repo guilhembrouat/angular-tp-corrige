@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -14,6 +14,7 @@ import { ContactEdit2Component } from './components/contact-edit2.component';
 import { ContactListSubComponent } from './components/contact-list-sub.component';
 import { ChatComponent } from './components/chat.component';
 import { HelpComponent } from './components/help.component';
+import { ExampleInterceptor } from './example-interceptor';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,13 @@ import { HelpComponent } from './components/help.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ExampleInterceptor,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
