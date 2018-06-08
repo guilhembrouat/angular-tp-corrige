@@ -6,7 +6,7 @@ import { Contact } from '../models/contact';
   selector: 'app-contact-edit2',
   template: `
   <p>
-    Edit : {{contact?.firstname}} {{contact?.lastname}}
+    Edit : {{contact?.firstName}} {{contact?.lastName}}
   </p>
   
   <a routerLink="/list">Back to list</a>
