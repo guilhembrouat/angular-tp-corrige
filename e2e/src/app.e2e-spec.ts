@@ -1,3 +1,15 @@
+import { browser, by, element } from 'protractor';
+
+describe('workspace-project App', () => {
+  it('should display title', () => {
+    browser.get('/');
+    const title = element(by.css('app-root h1')).getText();
+    expect(title).toEqual('Address Book');
+  });
+});
+
+
+/*
 import { AppPage } from './app.po';
 
 describe('workspace-project App', () => {
@@ -7,8 +19,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display title', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to AddressBook!');
+    expect(page.getParagraphText()).toEqual('Address Book');
   });
 });
+*/
